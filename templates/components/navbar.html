@@ -1,27 +1,39 @@
 <div class="ht-tm-navbar navbar-dark text-white">
   <div class="container">
     <div class="ht-tm-navbar-left">
-      <a href="{{ url_for('views.static_html', route='/') }}" class="text-decoration-none text-light">
+      <!--显示Logo-->
+      <a href="{{ url_for('views.static_html', route='/') }}" class="navbar-brand">
+        {% if Configs.ctf_logo %}
+            <img class="img-responsive ctf_logo" src="{{ url_for('views.files', path=Configs.ctf_logo) }}" height="25" alt="{{ Configs.ctf_name }}">
+        {% else %}
+            {{ Configs.ctf_name }}
+        {% endif %}
+    </a>
+      <!-- 显示标题
+        <a href="{{ url_for('views.static_html', route='/') }}" class="text-decoration-none text-light">
         <span class="ht-tm-navbar-title">{{ Configs.ctf_name }}</span>
-      </a>
+      </a> -->
       <nav class="ht-tm-nav">
-        <a href="{{ url_for('views.static_html', route='/') }}" class="pl-md-0 p-3 text-light">Home</a>
+        <!--
+          首页按钮，没啥用
+          <a href="{{ url_for('views.static_html', route='/') }}" class="pl-md-0 p-3 text-light">首页</a>
+        -->
         {% for page in Plugins.user_menu_pages %}
           <a class="text-decoration-none text-light" href="{{ page.route }}">{{ page.title }}</a>
         {% endfor %}
 
         {% if Configs.account_visibility != 'admins' %}
-          <a class="text-decoration-none text-light" href="{{ url_for('users.listing') }}">Users</a>
+          <a class="text-decoration-none text-light" href="{{ url_for('users.listing') }}">用户</a>
           {% if Configs.user_mode == 'teams' %}
-            <a class="text-decoration-none text-light" href="{{ url_for('teams.listing') }}">Teams</a>
+            <a class="text-decoration-none text-light" href="{{ url_for('teams.listing') }}">团队</a>
           {% endif %}
         {% endif %}
 
         {% if Configs.score_visibility != 'admins' %}
-          <a class="text-decoration-none text-light" href="{{ url_for('scoreboard.listing') }}">Scoreboard</a>
+          <a class="text-decoration-none text-light" href="{{ url_for('scoreboard.listing') }}">排行榜</a>
         {% endif %}
-        <a class="text-decoration-none text-light" href="{{ url_for('challenges.listing') }}">Challenges</a>
-        <a class="text-decoration-none text-light" href="{{ url_for('views.notifications') }}">Notifications</a>
+        <a class="text-decoration-none text-light" href="{{ url_for('challenges.listing') }}">挑战</a>
+        <a class="text-decoration-none text-light" href="{{ url_for('views.notifications') }}">公告</a>
       </nav>
     </div>
     <div class="ht-tm-element btn-group ml-auto">
@@ -32,7 +44,7 @@
               <i class="fas fa-wrench d-none d-md-block d-lg-none"></i>
             </span>
             <span class="d-sm-block d-md-none d-lg-block">
-              <i class="fas fa-wrench pr-1"></i>Admin Panel
+              <i class="fas fa-wrench pr-1"></i>管理面板
             </span>
           </a>
         {% endif %}
@@ -42,7 +54,7 @@
               <i class="fas fa-users d-none d-md-block d-lg-none"></i>
             </span>
             <span class="d-sm-block d-md-none d-lg-block">
-              <i class="fas fa-users pr-1"></i>Team
+              <i class="fas fa-users pr-1"></i>团队
             </span>
           </a>
         {% endif %}
@@ -51,7 +63,7 @@
             <i class="fas fa-user-circle d-none d-md-block d-lg-none"></i>
           </span>
           <span class="d-sm-block d-md-none d-lg-block">
-            <i class="fas fa-user-circle pr-1"></i>Profile
+            <i class="fas fa-user-circle pr-1"></i>个人信息
           </span>
         </a>
         <a class="btn btn-sm btn-outline-light" href="{{ url_for('views.settings') }}">
@@ -59,7 +71,7 @@
             <i class="fas fa-cogs d-none d-md-block d-lg-none"></i>
           </span>
           <span class="d-sm-block d-md-none d-lg-block">
-            <i class="fas fa-cogs pr-1"></i>Settings
+            <i class="fas fa-cogs pr-1"></i>设置
           </span>
         </a>
         <a class="btn btn-sm btn-outline-light" href="{{ url_for('auth.logout') }}">
@@ -68,7 +80,7 @@
           </span>
           <span class="d-sm-block d-md-none d-lg-block">
             <i class="fas fa-sign-out-alt pr-1"></i>
-            <span class="d-lg-none">Logout</span>
+            <span class="d-lg-none">退出登录</span>
           </span>
         </a>
       {% else %}
@@ -78,7 +90,7 @@
               <i class="fas fa-user-plus d-none d-md-block d-lg-none"></i>
             </span>
             <span class="d-sm-block d-md-none d-lg-block">
-              <i class="fas fa-user-plus pr-1"></i>Register
+              <i class="fas fa-user-plus pr-1"></i>注册
             </span>
           </a>
         {% endif %}
@@ -87,7 +99,7 @@
             <i class="fas fa-sign-in-alt d-none d-md-block d-lg-none"></i>
           </span>
           <span class="d-sm-block d-md-none d-lg-block">
-            <i class="fas fa-sign-in-alt pr-1"></i>Login
+            <i class="fas fa-sign-in-alt pr-1"></i>登录
           </span>
         </a>
       {% endif %}

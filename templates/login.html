@@ -4,7 +4,7 @@
 
 {% block content %}
   <div class="container py-5 mb-5">
-    <h1 class="mb-5 text-center">Before we start HACKING<span class="vim-caret">͏͏&nbsp;&nbsp;</span>
+    <h1 class="mb-5 text-center">在答题之前，你需要注册！<span class="vim-caret">͏͏&nbsp;&nbsp;</span>
     </h1>
     <div class="row py-4">
       <div class="col-md-8 order-md-2">
@@ -17,11 +17,11 @@
             {{ form.name.label }}
             <div class="input-group">
               <div class="input-group-prepend">
-                <span class="input-group-text">@</span>
+                <span class="input-group-text">A</span>
               </div>
-              {{ form.name(class="form-control", value=name, placeholder="Who are you?") }}
+              {{ form.name(class="form-control", value=name, placeholder="你是谁呢?") }}
               <div class="invalid-feedback" style="width: 100%;">
-                Your username is required.
+                您的用户名是必需的！
               </div>
             </div>
           </div>
@@ -30,15 +30,15 @@
             {{ form.password.label }}
 
             <a class="float-right align-text-to-button" href="{{ url_for('auth.reset_password') }}">
-              Forgot your password?
+              忘记了您的密码？
             </a>
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text">#</span>
               </div>
-              {{ form.password(class="form-control", value=password, placeholder="Make sure nobody's behind you ;)") }}
+              {{ form.password(class="form-control", value=password, placeholder="保证没人能看到你的密码哦！ ;)") }}
               <div class="invalid-feedback">
-                Please enter a valid password.
+                请输入有效的密码
               </div>
             </div>
           </div>

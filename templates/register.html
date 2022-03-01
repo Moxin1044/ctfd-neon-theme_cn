@@ -4,8 +4,8 @@
 
 {% block content %}
   <div class="container py-5 mb-5">
-    <h1 class="mb-5 text-center">Register for
-      {{ Configs.ctf_name }}
+    <h1 class="mb-5 text-center">注册
+      {{ Configs.ctf_name }} 账号
       <span class="vim-caret">͏͏&nbsp;&nbsp;</span></h1>
     <div class="row py-4">
       <div class="col-md-8 order-md-2">
@@ -19,20 +19,23 @@
             {{ form.name.label }}
             <div class="input-group">
               <div class="input-group-prepend">
-                <span class="input-group-text">@</span>
+                <span class="input-group-text">A</span>
               </div>
-              {{ form.name(class="form-control", value=name, placeholder="Username") }}
+              {{ form.name(class="form-control", value=name, placeholder="输入你的用户名") }}
               <div class="invalid-feedback" style="width: 100%;">
-                Your username is required.
+                需要输入你的用户名！
               </div>
             </div>
           </div>
 
           <div class="mb-3">
             {{ form.email.label }}
+            <div class="input-group-prepend">
+              <span class="input-group-text">A</span>
+            </div>
             {{ form.email(class="form-control", value=email, placeholder="you@example.com") }}
             <div class="invalid-feedback">
-              Please enter a valid email address.
+              请输入你的邮箱地址
             </div>
           </div>
 
@@ -42,9 +45,9 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">#</span>
               </div>
-              {{ form.password(class="form-control", value=password, placeholder="Make sure nobody's behind you ;)") }}
+              {{ form.password(class="form-control", value=password, placeholder="记得回头看看有没有人 ;)") }}
               <div class="invalid-feedback">
-                Please enter a valid password.
+                请输入有效的密码
               </div>
             </div>
           </div>
@@ -58,12 +61,11 @@
           <hr class="mb-4">
           <div class="custom-control">
             <div class="col-md-12 text-center">
-              <small class="text-muted text-center">
-                By registering, you agree to the
-                <a href="{{ Configs.privacy_link }}" rel="noopener" target="_blank">privacy policy</a>
-                and
-                <a href="{{ Configs.tos_link }}" rel="noopener" target="_blank">terms of service</a>
-              </small>
+						<small class="text-muted text-center">
+							注册即表示您同意
+							<a href="{{ Configs.privacy_link }}" rel="noopener" target="_blank">隐私政策</a>
+							和 <a href="{{ Configs.tos_link }}" rel="noopener" target="_blank">服务条款</a>
+						</small>
             </div>
           </div>
         {% endif %}

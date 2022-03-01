@@ -2,12 +2,12 @@
 
 {% block content %}
   <div class="container py-5 mb-5">
-    <h1 class="mb-5 text-center">Notifications<span class="vim-caret">͏͏&nbsp;&nbsp;</span>
+    <h1 class="mb-5 text-center">公告<span class="vim-caret">͏͏&nbsp;&nbsp;</span>
     </h1>
   </div>
   <div class="container">
     {% if not notifications %}
-      <h2 class="text-center">There are no notifications yet</h2>
+      <h2 class="text-center">目前没有任何公告</h2>
     {% endif %}
     {% for notification in notifications %}
       <div class="card mb-4">

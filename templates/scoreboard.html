@@ -2,7 +2,7 @@
 
 {% block content %}
   <div class="container py-5 mb-5">
-    <h1 class="text-center">Scoreboard<span class="vim-caret">͏͏&nbsp;&nbsp;</span>
+    <h1 class="text-center">排行榜<span class="vim-caret">͏͏&nbsp;&nbsp;</span>
     </h1>
   </div>
   <div class="container">
@@ -15,15 +15,9 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <td scope="col" width="10px">
-                  <b>Place</b>
-                </td>
-                <td scope="col">
-                  <b>{{ get_mode_as_word(capitalize=True) }}</b>
-                </td>
-                <td scope="col">
-                  <b>Score</b>
-                </td>
+                <td scope="col" width="10px"><b>NO.</b></td>
+                <td scope="col"><b>{{ get_mode_as_word(capitalize=True) }}</b></td>
+                <td scope="col"><b>得分</b></td>
               </tr>
             </thead>
             <tbody>
