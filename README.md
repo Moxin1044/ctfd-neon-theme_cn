@@ -1,4 +1,5 @@
 # ctfd-neon-theme
+已完成汉化！
 Compatible with CTFd Version 3.4.0
 
 Few Screenshots:
